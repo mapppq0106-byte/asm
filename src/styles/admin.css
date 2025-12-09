@@ -1,0 +1,110 @@
+/* src/styles/admin.css */
+
+/* Tùy chỉnh Header cho Admin */
+.admin-header {
+    background-color: #343a40; /* Màu tối hơn */
+}
+
+/* Bố cục chính */
+.admin-main {
+    display: flex;
+    min-height: calc(100vh - 65px); /* Chiều cao tối thiểu trừ đi header */
+    max-width: none; /* Bỏ giới hạn width của main */
+    padding: 0;
+}
+
+/* Sidebar */
+#admin-sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    padding: 20px;
+}
+
+#admin-sidebar h2 {
+    margin-top: 0;
+    color: #343a40;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+}
+
+#admin-sidebar nav a {
+    display: block;
+    color: #495057;
+    text-decoration: none;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#admin-sidebar nav a:hover, #admin-sidebar nav a.active {
+    background-color: #e9ecef;
+    color: #007bff;
+}
+
+/* Nội dung */
+#admin-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: white;
+}
+
+/* --- Định dạng Bảng chung trong Admin --- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.admin-table th {
+    background-color: #f1f1f1;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Định dạng Form chung */
+.admin-form {
+    max-width: 600px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.admin-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Nút Thao tác */
+.action-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.edit-btn { background-color: #ffc107; }
+.delete-btn { background-color: #dc3545; }

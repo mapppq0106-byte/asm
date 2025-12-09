@@ -1,0 +1,103 @@
+/* src/styles/cart.css */
+
+/* --- Định dạng Bảng Giỏ hàng --- */
+#cart-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#cart-list-container th, #cart-list-container td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#cart-list-container th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #333;
+}
+
+#cart-list-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Định dạng cột Sản phẩm */
+#cart-list-container td:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Định dạng ô Số lượng */
+.item-quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Định dạng nút Xóa */
+.remove-item-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-item-btn:hover {
+    background-color: #c82333;
+}
+
+/* --- Định dạng Tổng tiền và Thanh toán --- */
+#cart-summary {
+    text-align: right;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.total-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.total-amount {
+    color: #dc3545; /* Màu đỏ nổi bật cho tổng tiền */
+    margin-left: 10px;
+}
+
+#checkout-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#checkout-btn:hover {
+    background-color: #1e7e34;
+}

@@ -1,0 +1,321 @@
+/* src/styles/main.css */
+
+/* --- Cài đặt chung --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* ---------------------------------------------------- */
+/* --- PHẦN HEADER MỚI (ĐÃ SỬA) --- */
+/* ---------------------------------------------------- */
+header {
+    background-color: #1a1a2e; /* Màu nền tối (Dark Blue/Indigo) */
+    color: white;
+    padding: 10px 40px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+}
+
+/* Tên Shop (Trang Chủ) */
+header h1 {
+    margin: 0;
+    font-size: 1.8em; 
+    font-weight: 700;
+    color: #ffd700; /* Màu vàng Gold nổi bật */
+    letter-spacing: 1px; 
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+header h1:hover {
+    color: #ffe84d;
+}
+
+/* Thanh Điều hướng (Navigation) */
+nav {
+    display: flex;
+    gap: 25px; 
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px; 
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1em;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid transparent; 
+}
+
+/* Hiệu ứng Hover và Active */
+nav a:hover {
+    background-color: #2b3a55; 
+    color: #ffd700; 
+}
+
+/* Class active để highlight Trang đang hoạt động */
+.active-nav-link {
+    background-color: #007bff; 
+    border-color: #007bff;
+    font-weight: bold;
+}
+/* ---------------------------------------------------- */
+/* --- HẾT PHẦN HEADER MỚI --- */
+/* ---------------------------------------------------- */
+
+
+main {
+    padding: 20px 50px;
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung tối đa */
+    margin: 0 auto; /* Căn giữa nội dung */
+}
+
+/* --- Định dạng Bộ lọc --- */
+.filter-bar {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.filter-group label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.filter-bar select, .filter-bar button {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#apply-filter-btn {
+    background-color: #ffc107;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+#apply-filter-btn:hover {
+    background-color: #e0a800;
+}
+
+/* --- Định dạng Danh sách Sản phẩm (Grid) --- */
+#product-list {
+    display: grid;
+    /* CHỈNH SỬA để cố định 3 cột */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden; 
+    transition: transform 0.3s;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 180px; /* Chiều cao cố định */
+    object-fit: cover; /* **Sửa lỗi tràn ảnh** */
+    border-bottom: 1px solid #eee;
+}
+
+.product-name {
+    font-size: 1.1em;
+    margin: 15px 10px 5px;
+    color: #007bff;
+}
+
+.product-price {
+    font-size: 1.2em;
+    color: #dc3545; 
+    font-weight: bold;
+    margin: 5px 10px 15px;
+}
+
+.add-to-cart-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #1e7e34;
+}
+
+.view-detail-link {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/* --- Định dạng Trang Chi tiết Sản phẩm --- */
+.detail-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.detail-content {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.detail-image {
+    width: 50%; /* Chiếm 50% chiều rộng của container */
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-info {
+    width: 50%;
+}
+
+.detail-name {
+    font-size: 2.2em;
+    color: #007bff;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.detail-price {
+    font-size: 1.8em;
+    color: #dc3545;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.detail-desc {
+    font-weight: bold;
+    margin-top: 25px;
+    color: #333;
+}
+
+/* Nút Thêm vào Giỏ hàng (Tái sử dụng lớp từ trang chủ) */
+#add-to-cart-detail {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#add-to-cart-detail:hover {
+    background-color: #1e7e34;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .detail-content {
+        flex-direction: column; /* Xếp dọc trên điện thoại */
+    }
+    .detail-image, .detail-info {
+        width: 100%;
+    }
+    .detail-container {
+        margin: 15px;
+        padding: 15px;
+    }
+}
+
+/* --- Sidebar Menu --- */
+#admin-sidebar {
+    width: 240px; /* Tăng chiều rộng cho Sidebar */
+    background-color: #343a40; /* Nền tối (Dark background) */
+    border-right: 1px solid #292d32;
+    padding: 0; /* Loại bỏ padding ở đây, sẽ thêm vào các link */
+}
+
+#admin-sidebar h2 {
+    color: #e9ecef; /* Màu chữ sáng */
+    padding: 20px 20px 10px 20px;
+    margin-top: 0;
+    border-bottom: 1px solid #495057; /* Đường phân cách */
+    font-size: 1.2em;
+}
+
+/* Định dạng các liên kết trong Sidebar */
+#admin-sidebar nav {
+    /* Quan trọng: Đảm bảo các link xếp dọc */
+    display: flex;
+    flex-direction: column; 
+    padding: 0 0 20px 0;
+}
+
+#admin-sidebar nav a {
+    display: block; /* Chiếm toàn bộ chiều rộng */
+    color: #e9ecef; /* Màu chữ mặc định */
+    text-decoration: none;
+    padding: 12px 20px; /* Padding lớn hơn cho nút */
+    margin: 0; /* Loại bỏ margin giữa các link */
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 500;
+    line-height: 1.4; /* Tăng khoảng cách dòng cho chữ bị ngắt */
+}
+
+/* Hiệu ứng Hover và Active */
+#admin-sidebar nav a:hover {
+    background-color: #495057; /* Nền tối hơn khi hover */
+    color: white;
+}
+
+#admin-sidebar nav a.active {
+    background-color: #007bff; /* Màu nền xanh dương nổi bật */
+    color: white;
+    font-weight: bold;
+    border-left: 5px solid #ffd700; /* Đường viền highlight bên trái */
+    padding-left: 15px; /* Điều chỉnh padding để giữ khoảng cách */
+}
+
+
+/* --- Nội dung chính --- */
+#admin-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #f4f7f6; /* Đảm bảo nền nội dung chính là màu sáng */
+}
