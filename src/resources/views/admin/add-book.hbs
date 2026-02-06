@@ -1,0 +1,41 @@
+<div class="auth-wrapper">
+    <div class="auth-container">
+        <h2>Thêm Sách Mới</h2>
+        <form action="/admin/add" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Tiêu đề sách</label>
+                <input type="text" name="title" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label>Tác giả</label>
+                <input type="text" name="author" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label>Danh mục sách</label>
+                <select name="category_id" class="form-input">
+                    <option value="">-- Chọn danh mục --</option>
+                    {{#each categories}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mã ISBN</label>
+                <input type="text" name="isbn" class="form-input">
+            </div>
+            <div class="form-group">
+                <label>Giá (VNĐ)</label>
+                <input type="number" name="price" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label>Ảnh bìa</label>
+                <input type="file" name="image" class="form-input" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label>Mô tả ngắn</label>
+                <textarea name="description" class="form-input" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-auth">LƯU THÔNG TIN</button>
+        </form>
+    </div>
+</div>

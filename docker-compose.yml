@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app    # Ánh xạ code từ máy thật vào container
+      - /usr/src/app/node_modules # Giữ lại node_modules bên trong container
+    env_file: .env
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=development
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      # Các thông số này phải khớp với file .env của bạn
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: book_store
+    ports:
+      - "3306:3306"
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --skip-character-set-client-handshake
+    volumes:
+      # Dòng này cực kỳ quan trọng: Nó sẽ tự động chạy các lệnh CREATE TABLE 
+      # và INSERT dữ liệu từ file SQL của bạn khi Docker khởi động lần đầu.
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql

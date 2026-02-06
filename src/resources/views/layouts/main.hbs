@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/home.css">
+    {{#if (eq user.role 'admin')}}
+        <link rel="stylesheet" href="/css/sidebar.css">
+    {{/if}}
+</head>
+<body>
+    {{> header}}
+
+    {{#if (eq user.role 'admin')}}
+        <div class="admin-layout-wrapper">
+            {{> sidebar}} <main class="admin-main-content">
+                {{{body}}}
+            </main>
+        </div>
+    {{else}}
+        <div class="container">
+            {{{body}}}
+        </div>
+    {{/if}}
+</body>
+</html>

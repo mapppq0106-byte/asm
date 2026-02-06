@@ -1,0 +1,38 @@
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>Quản Lý Đánh Giá</h2>
+        <div>
+            <a href="/admin" class="btn-auth" style="text-decoration: none;">Sách</a>
+            <a href="/admin/users" class="btn-auth" style="text-decoration: none;">Người dùng</a>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Người dùng</th>
+                <th>Tên sách</th>
+                <th>Điểm</th>
+                <th>Nội dung</th>
+                <th>Ngày gửi</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each reviews}}
+            <tr>
+                <td>{{this.username}}</td>
+                <td><strong>{{this.book_title}}</strong></td>
+                <td><span style="color: #ffcc00;">{{this.rating}} ⭐</span></td>
+                <td style="max-width: 300px; word-wrap: break-word;">{{this.comment}}</td>
+                <td>{{this.created_at}}</td>
+                <td>
+                    <form action="/admin/reviews/delete/{{this.id}}" method="POST" onsubmit="return confirm('Xóa đánh giá này?')">
+                        <button type="submit" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

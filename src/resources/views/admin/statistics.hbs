@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 style="margin-bottom: 30px;">Báo Cáo Thống Kê</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h3>Top 5 Sách xem nhiều nhất</h3>
+            <table style="width: 100%;">
+                {{#each stats.mostViewed}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td><strong>{{this.view_count}} lượt xem</strong></td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+
+        <div style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h3>Top 5 Sách được đánh giá nhiều</h3>
+            <table style="width: 100%;">
+                {{#each stats.mostReviewed}}
+                <tr>
+                    <td>{{this.title}}</td>
+                    <td><strong>{{this.total_reviews}} đánh giá</strong></td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</div>

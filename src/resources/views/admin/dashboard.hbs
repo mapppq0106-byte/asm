@@ -1,0 +1,52 @@
+<div class="admin-dashboard-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h2 style="color: #333; font-weight: 700;">Quản Lý Thư Viện</h2>
+        <a href="/admin/add" class="btn-auth" style="text-decoration: none; width: auto; padding: 10px 25px;">
+            <i class="fas fa-plus"></i> Thêm Sách Mới
+        </a>
+    </div>
+
+    <div style="background: #fff; border-radius: 12px; border: 1px solid #e0e0e0; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <table style="width: 100%; border-collapse: collapse; background: #fff; color: #444;">
+            <thead>
+                <tr style="background: #f8f9fa; border-bottom: 2px solid #eee; text-align: left;">
+                    <th style="padding: 18px 15px;">Ảnh</th>
+                    <th style="padding: 18px 15px;">Tiêu đề</th>
+                    <th style="padding: 18px 15px;">Tác giả</th>
+                    <th style="padding: 18px 15px;">Danh mục</th>
+                    <th style="padding: 18px 15px;">Giá</th>
+                    <th style="padding: 18px 15px; text-align: center;">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each books}}
+                <tr style="border-bottom: 1px solid #f1f1f1; transition: 0.2s;">
+                    <td style="padding: 12px 15px;">
+                        <img src="/img/{{this.image_url}}" style="width: 50px; height: 72px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    </td>
+                    <td style="padding: 12px 15px; font-weight: 600; color: #222;">{{this.title}}</td>
+                    <td style="padding: 12px 15px; color: #666;">{{this.author}}</td>
+                    <td style="padding: 12px 15px;">
+                        <span style="background: #e7f1ff; color: #007bff; padding: 4px 10px; border-radius: 15px; font-size: 0.85rem; font-weight: 600;">
+                            {{this.category_name}}
+                        </span>
+                    </td>
+                    <td style="padding: 12px 15px; font-weight: 700; color: #28a745;">{{this.price}} VNĐ</td>
+                    <td style="padding: 12px 15px;">
+                        <div style="display: flex; gap: 10px; justify-content: center;">
+                            <a href="/admin/edit/{{this.id}}" style="color: #007bff; text-decoration: none; padding: 6px 12px; border: 1px solid #007bff; border-radius: 6px; font-size: 0.9rem; transition: 0.2s;">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                            <form action="/admin/delete/{{this.id}}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xóa?')">
+                                <button type="submit" style="background: #fff; color: #dc3545; border: 1px solid #dc3545; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; transition: 0.2s;">
+                                    <i class="fas fa-trash"></i> Xóa
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

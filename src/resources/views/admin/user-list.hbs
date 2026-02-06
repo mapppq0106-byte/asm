@@ -1,0 +1,35 @@
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>Quản Lý Người Dùng</h2>
+        <a href="/admin" class="btn-auth" style="text-decoration: none;">Quản Lý Sách</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên đăng nhập</th>
+                <th>Email</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.username}}</td>
+                <td>{{this.email}}</td>
+                <td>
+                    <div style="display: flex; gap: 10px;">
+                        <form action="/admin/users/delete/{{this.id}}" method="POST" onsubmit="return confirm('Xóa người dùng này?')">
+                            <button type="submit" style="background: #ff4444; border: none; padding: 5px 10px; color: white; border-radius: 4px; cursor: pointer;">
+                                Xóa
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

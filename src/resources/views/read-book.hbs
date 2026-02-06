@@ -1,0 +1,22 @@
+<div class="container" style="display: flex; gap: 20px;">
+    <div style="width: 250px; background: #f8f9fa; padding: 15px; border-radius: 8px;">
+        <h4>Danh sách chương</h4>
+        <ul style="list-style: none; padding: 0;">
+            {{#each chapters}}
+                <li style="margin-bottom: 10px;">
+                    <a href="?chapter={{this.chapter_number}}" style="text-decoration:none; color: #007bff;">
+                        Chương {{this.chapter_number}}: {{this.title}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div style="flex: 1; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+        <h2>{{currentChapter.title}}</h2>
+        <hr>
+        <div style="line-height: 1.8; font-size: 1.1rem; white-space: pre-line;">
+            {{currentChapter.content}}
+        </div>
+    </div>
+</div>

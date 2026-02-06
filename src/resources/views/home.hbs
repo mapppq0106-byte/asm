@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 style="text-align: center; margin-bottom: 40px; font-weight: 800; color: #222;">Thư Viện Sách</h1>
+    
+    <div class="book-grid">
+        {{#each books}}
+        <div class="book-card">
+            <a href="/book/{{this.id}}" class="book-image">
+                <img src="/img/{{this.image_url}}" alt="{{this.title}}">
+            </a>
+            
+            <div class="book-info">
+                <h3 class="book-title" title="{{this.title}}">{{this.title}}</h3>
+                <p class="book-author">Tác giả: <strong>{{this.author}}</strong></p>
+                <p class="category-tag">Loại: <strong>{{this.category_name}}</strong></p>
+                <p class="book-price">{{this.price}} VNĐ</p>
+                
+                {{!-- Nút chi tiết để ở cuối card --}}
+                <div style="margin-top: auto;">
+                    <a href="/book/{{this.id}}" class="btn-auth" style="text-decoration:none; text-align:center; display:block;">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
